@@ -21,6 +21,7 @@ def percentile99(x):
 def count(x):
     return x.shape[0]
 
+
 if __name__ == "__main__":
     folder_save = "gs://starcop/Permian/data"
     fs = get_filesystem(folder_save)

@@ -1,5 +1,5 @@
 experiment_name: "starcop_run"
-seed: None # Pytorch Lightning global seed, for reproducibility
+seed: 1024 # Pytorch Lightning global seed, for reproducibility
 
 resume_from_checkpoint: False # Load weights from a checkpoint before training
 
@@ -18,7 +18,7 @@ products_plot: ["rgb_aviris", "mag1c", "label", "pred", "differences"]
 plot_samples: 8 # how many samples from the batch to select (note: should be less than the batch size)
 
 dataset:
-  input_products: [ "mag1c", "TOA_AVIRIS_640nm", "TOA_AVIRIS_550nm", "TOA_AVIRIS_460nm"] # mag1c + AVIRIS RGB
+  input_products: ["mag1c", "TOA_AVIRIS_640nm", "TOA_AVIRIS_550nm", "TOA_AVIRIS_460nm"] # mag1c + AVIRIS RGB
   output_products: ["labelbinary"]
   use_weight_loss: True
   weight_loss: "weight_mag1c"
