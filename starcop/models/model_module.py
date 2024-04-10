@@ -62,7 +62,6 @@ class ModelModule(pl.LightningModule):
             self.confusion_matrix = torchmetrics.ConfusionMatrix(num_classes=2, task="binary")
             self.classification_confusion_matrix = torchmetrics.ConfusionMatrix(num_classes=2, task="binary")
 
-
         elif self.settings_model.model_mode == "regression_output":
             raise NotImplementedError("Not implemented yet")
 

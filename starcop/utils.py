@@ -10,7 +10,7 @@ from glob import glob
 import numpy as np
 import rasterio
 import json
-
+ 
 
 def remove_folder(name_folder):
     # Used for deleting a folder with temporary files

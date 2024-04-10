@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 # Download key from console.cloud.google.com/iam-admin/serviceaccounts
 INTERPRETATION_CLOUDSEN12 = ["clear", "Thick cloud", "Thin cloud", "Cloud shadow"]
 
+
 def load_weights(path, map_location=None):
     fs = fsspec.filesystem("gs")
     with fs.open(path, "rb") as f:
@@ -17,12 +18,14 @@ def load_weights(path, map_location=None):
 
     return weights
 
+
 def find_padding(v, divisor=8):
     v_divisible = max(divisor, int(divisor * np.ceil(v / divisor)))
     total_pad = v_divisible - v
     pad_1 = total_pad // 2
     pad_2 = total_pad - pad_1
     return pad_1, pad_2
+
 
 def padded_predict(tensor:np.array, model:torch.nn.Module, divisor:int=32,
                    device:torch.device=torch.device("cpu")) -> np.array:

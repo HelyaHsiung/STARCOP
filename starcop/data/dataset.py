@@ -100,4 +100,3 @@ class STARCOPDataset(Dataset):
         out_dict["has_plume"] = int(data_iter.has_plume)
 
         return out_dict
-

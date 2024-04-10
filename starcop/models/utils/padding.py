@@ -2,6 +2,7 @@ import numpy as np
 import torch
 from numpy.typing import ArrayLike
 
+
 def find_padding(v:int, divisor:int=8):
     v_divisible = max(divisor, int(divisor * np.ceil(v / divisor)))
     total_pad = v_divisible - v

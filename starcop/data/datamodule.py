@@ -64,7 +64,6 @@ def tiled_dataframe(dataframe:pd.DataFrame, tile_size:Tuple[int, int],
     return dataframe_tiled
 
 
-
 class Permian2019DataModule(pl.LightningDataModule):
     def __init__(self, settings):
         super().__init__()
@@ -105,7 +104,6 @@ class Permian2019DataModule(pl.LightningDataModule):
         train_dataframe = train_dataframe.set_index("id")
         return train_dataframe
 
-
     def prepare_data(self):
         """
         Make sure that the dataset is downloaded.
@@ -130,7 +128,7 @@ class Permian2019DataModule(pl.LightningDataModule):
             K.RandomHorizontalFlip(p=0.5),
             K.RandomVerticalFlip(p=0.5),
             keepdim=True,
-            data_keys=["input" , model_output_type] + extra_types,
+            data_keys=["input", model_output_type] + extra_types,
         )
 
         # Feature extraction if needed
@@ -144,7 +142,6 @@ class Permian2019DataModule(pl.LightningDataModule):
 
         train_dataset_path = os.path.join(self.root_folder, self.train_csv)
         test_dataset_path = os.path.join(self.root_folder, self.test_csv)
-
 
         products = list(self.raw_bands)
         for f in self.features_extract:
@@ -192,7 +189,6 @@ class Permian2019DataModule(pl.LightningDataModule):
                 train_dataframe = train_dataframe.set_index("id")
         else:
             train_dataframe = self.train_dataframe_original
-        
 
         self.train_dataset = dataset.STARCOPDataset(train_dataframe,
                                                     input_products=self.input_products,

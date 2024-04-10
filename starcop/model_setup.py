@@ -2,6 +2,7 @@ import os
 from .models.model_module import ModelModule, load_weights
 from .models.model_module_regression import ModelModuleRegression
 
+
 def get_model(settings, experiment_name):
     
     if settings.model.model_mode == "segmentation_output":
